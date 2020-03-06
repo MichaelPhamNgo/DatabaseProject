@@ -1,0 +1,176 @@
+
+.TopGroupMenu
+{
+  background:#336699;
+  border-right:1px solid rgb(230,239,234);
+  height:30px;
+  cursor:default;
+}
+
+.MenuGroup {
+ background-color:#f6f6f6;
+ cursor:default;  
+}
+
+.TopMenuItem
+{
+    color: white;
+    background:#336699;
+    font-family: Arial;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: default;
+    border-right:1px solid rgb(230,239,234);
+
+}
+
+.TopMenuItemHover
+{
+  color:white;
+  background:rgb(81,128,85);
+  font-family:Arial;
+  font-size:13px;
+  font-weight: bold;
+  cursor:default;
+  border-right:1px solid rgb(230,239,234);
+
+}
+
+.MenuItem {
+
+  color:#666;
+  font-family:Arial;
+  font-size:12px;
+  cursor:default;
+  border-right:1px solid rgb(230,239,234);
+  border-left:1px solid rgb(230,239,234);
+  width: 200px;
+ height:20px;
+}
+
+.MenuItemHover {
+  margin:0;
+  color: #000;
+  font-family:Arial;
+  font-size:12px;
+  cursor:default;
+  border-right:1px solid rgb(230,239,234);
+  border-left:1px solid rgb(230,239,234);
+ width: 200px;
+  height:20px;
+}
+
+.MenuItemExpanded
+{
+  margin:0;
+  color: #000;
+  border-right:1px solid rgb(230,239,234);
+  border-left:1px solid rgb(230,239,234);
+
+  font-family:Arial;
+  font-size:12px;
+  cursor:default;
+}
+
+.MenuItemActive
+{
+  margin:0;
+  background:#fff;
+  color: #454545;
+  border: 1px solid #ddd;
+  border-right-color:#ccc;
+  border-bottom-color:#ccc;
+  font-family:Arial;
+  font-size:12px;
+  cursor:default;
+}
+
+.MenuBreak
+{
+  background-color: silver;
+  width:100%;
+  height:2px;
+}
+
+
+.SetMarginsHover {
+  margin:0;
+  background:#fff ;
+  color: #000;
+  border: 1px solid #ccc;
+  border-right-color:#b9b9b9;
+  border-bottom-color:#b9b9b9;
+  font-family:Arial;
+  font-size:12px;
+  cursor:default;
+}
+
+
+.SetMarginsActive {
+  margin:0;
+  background:#fff ;
+  color: #454545;
+  border: 1px solid #ddd;
+  border-right-color:#ccc;
+  border-bottom-color:#ccc;
+  font-family:Arial;
+  font-size:12px;
+  cursor:default;
+}
+
+
+.ScrollItem
+{
+  background-color:#eee;
+  color:#666;
+  border: 1px solid #ccc;
+  text-align:center;
+  cursor:default;
+}
+
+.ScrollItemH
+{
+  background-color:#eee;
+  color:#000;
+  border: 1px solid #ccc;
+  border-right-color:#b9b9b9;
+  border-bottom-color:#b9b9b9;
+  text-align:center;
+  cursor:default;
+}
+
+.ScrollItemA
+{
+  color: #454545;
+  background-color:#fff;
+  border: 1px solid #ddd;
+  border-right-color:#ccc;
+  border-bottom-color:#ccc;
+  text-align:center;
+  cursor:default;
+}
+
+.DisabledMenuItem
+{
+	border: 1px solid #f6f6f6;
+	color: #888844;
+	font-family: Arial;
+	font-size: 12px;
+	cursor: default;
+	font-style: italic;
+}
+
+.DisabledMenuItemHover
+{
+	margin: 0;
+	background: #fff;
+	color: #888844;
+	border: 1px solid #ccc;
+	border-right-color: #b9b9b9;
+	border-bottom-color: #b9b9b9;
+	font-family: Arial;
+	font-size: 12px;
+	cursor: default;
+	font-style: italic;
+}
+

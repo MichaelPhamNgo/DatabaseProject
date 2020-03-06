@@ -1,0 +1,153 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.master.cs" Inherits="PhaseIII.Admin.Admin" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Barber Administration</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="Css/bootstrap.min.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        body{
+            font-size: 12px;
+            font-family: Arial;
+            color: White;
+        }
+        a {
+            display: inline-block;
+            text-decoration: none;
+            color: #4B2E83;
+        }
+        .header {
+            background: #4B2E83;
+            border-right: 1px solid rgb(230,239,234);
+            height: 80px;
+            text-align: right;
+        }
+        .footer {
+            background: #4B2E83;
+            border-right: 1px solid rgb(230,239,234);
+            padding:10px;
+            font-size: 12px;
+            font-family: Arial;
+            cursor: default;
+            color: White;
+            text-align: right;
+        }
+        .container {
+            width: 1000px;
+        }
+        .auto-style2 {
+            text-align: center;
+            height: 95px;
+        }
+        .auto-style3 {
+            font-size: xx-large;
+        }
+
+        .tableMenu {
+            border: 1px solid #4B2E83;
+            width: 200px;
+            text-align: left;
+            border-collapse: collapse;
+        }
+        table td, table td * {
+            vertical-align: top;
+        }
+        .menuheader{
+            background:#4B2E83;
+            text-align:center
+        }
+        .auto-style7 {
+            text-align: center;
+            padding:10px;
+            font-weight:600;
+            border-bottom:1px dashed #4B2E83;          
+        }
+        .auto-style9 {
+            background: #4B2E83;
+            text-align: center;
+            padding:10px;
+        }
+        .auto-style10 {
+            width: 2px;
+        }
+        .auto-style11 {
+            text-align: center;
+            padding: 10px;
+            font-weight: 600;
+            border-bottom: 1px dashed #4B2E83;
+            color: #4B2E83;
+        }
+        .auto-style12 {
+            text-align: center;
+            padding: 10px;
+            font-weight: 600;
+            height: 39px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <table class="container">
+            <tr class="header">
+                <td class="auto-style2" colspan="2">Welcome:
+                    <asp:Label ID="lbUserName" runat="server" Text="UserName"></asp:Label>
+                    <br />
+                    <strong><span class="auto-style3">Admin Control Panel</span></strong></td>
+            </tr>
+            <tr>
+                <td class="auto-style10">&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style10">
+                    <table class="tableMenu">
+                        <tr>
+                            <td class="auto-style9"><strong>Menu Control</strong></td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style7">
+                                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Admin/User.aspx">User</asp:HyperLink>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style7">
+                                <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/Admin/Group.aspx">Group</asp:HyperLink>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style7">
+                                <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/Admin/Service.aspx">Service</asp:HyperLink>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style7">
+                                <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/Admin/ServiceBarber.aspx">Service Barber</asp:HyperLink>
+                            </td>
+                        </tr>                        
+                        <tr>
+                            <td class="auto-style7">
+                                <asp:HyperLink ID="HyperLink7" runat="server" NavigateUrl="~/Admin/UserLocationService.aspx">Appointment</asp:HyperLink>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td rowspan="2">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server" >
+                    </asp:ContentPlaceHolder>
+
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style10">&nbsp;</td>
+            </tr>
+            <tr>
+                <td colspan="2" class="footer">© Group 3 - TCSS445 Database Systems Design Winter 2020.&nbsp;</td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

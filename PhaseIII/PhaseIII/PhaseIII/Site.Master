@@ -1,0 +1,145 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="PhaseIII.Site" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="Admin/Css/bootstrap.min.css" rel="stylesheet" />
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        body{
+            font-size: 12px;
+            font-family: Arial;
+            color: White;
+        }
+        a {
+            display: inline-block;
+            text-decoration: none;
+            color: #4B2E83;
+        }
+        .header {
+            background: #4B2E83;
+            border-right: 1px solid rgb(230,239,234);
+            height: 80px;
+            text-align: right;
+        }
+        .footer {
+            background: #4B2E83;
+            border-right: 1px solid rgb(230,239,234);
+            font-size: 12px;
+            font-family: Arial;
+            cursor: default;
+            color: White;
+            text-align: right;
+            padding:10px;
+        }
+        .container {
+            width: 100%;
+        }
+        .auto-style2 {
+            text-align: center;
+            height: 95px;
+        }
+        .tableContent{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center
+        }
+        .tableMenu {
+            border: 1px solid #4B2E83;
+            width: 200px;
+            text-align: left;
+            border-collapse: collapse;
+        }
+        table td, table td * {
+            vertical-align: top;
+        }
+        .menuheader {
+            background: #4B2E83;
+            text-align: center
+        }
+
+        .auto-style1 {
+            width: 50px;
+        }
+        .auto-style7 {
+            text-align: center;
+            padding:10px;
+            font-weight:600;
+            border-bottom:1px dashed #4B2E83;          
+        }
+        .auto-style9 {
+            background: #4B2E83;
+            text-align: center;
+            padding:10px;
+        }
+        .auto-style10 {
+            width: 2px;
+        }
+        .auto-style11 {
+            width: 906px;
+        }
+        </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <table class="container" align="center">
+            <tr class="header">
+                <td class="auto-style2" colspan="3"></td>
+            </tr>
+            <tr>
+                <td class="auto-style1">&nbsp;</td>        
+                <td>&nbsp;</td>
+                <td class="auto-style1">&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style1">&nbsp;</td>
+                <td>
+                    <table class="tableContent">
+                        <tr>
+                            <td>
+                                <table class="tableMenu">
+                                    <tr>
+                                        <td class="auto-style9">LOGO WEBSITE HERE</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="auto-style7">
+                                            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Default.aspx">Find Babers Nearby</asp:HyperLink>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="auto-style7">
+                                            <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/FindBarbers.aspx">Find Barbers with Options</asp:HyperLink>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="auto-style7">
+                                            <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/AboutUs.aspx">About Us</asp:HyperLink>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td style="width:20px;">&nbsp;</td>
+                            <td class="auto-style11"><asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                                </asp:ContentPlaceHolder></td>
+                        </tr>
+                    </table>
+                </td>     
+                <td class="auto-style1">&nbsp;</td>
+            </tr>
+            <tr class="auto-style1">
+                <td class="auto-style1">&nbsp;</td>
+                <td>&nbsp;</td>
+                <td class="auto-style1">&nbsp;</td>
+            </tr>
+            <tr>
+                <td colspan="3" class="footer">© Group 3 - TCSS445 Database Systems Design Winter 2020.&nbsp;</td>
+            </tr>
+        </table>        
+    </form>
+</body>
+</html>
