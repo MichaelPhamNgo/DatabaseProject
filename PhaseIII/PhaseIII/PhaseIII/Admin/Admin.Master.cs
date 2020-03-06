@@ -11,15 +11,15 @@ namespace PhaseIII.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (Session["LoginAccount"] == null || Session["LoginAccount"].ToString() == "")
-            //{
-            //    Response.Redirect("~/Admin/Login.aspx");
-            //}
+            if (Session["UserID"] == null || Session["UserID"].ToString() == "")
+            {
+                Response.Redirect("~/Admin/Login.aspx");
+            }
 
 
             if (!IsPostBack)
             {
-
+                lbUserName.Text = Session["Fullname"].ToString();
             }
 
         }

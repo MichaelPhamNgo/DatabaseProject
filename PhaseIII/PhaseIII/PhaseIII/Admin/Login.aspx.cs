@@ -6,6 +6,9 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
+using System.Web.Configuration;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace PhaseIII
 {
@@ -21,42 +24,81 @@ namespace PhaseIII
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-            string email;
-            string password;
+            string connectionString = WebConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+            SqlConnection conn = new SqlConnection(connectionString);
 
-            email = txtEmail.Text.Trim();
-            password = txtPassword.Text.Trim();
-
-            if (email.Length == 0)
+            if (txtEmail.Text.Trim().Length == 0)
             {
                 //InputYourEmail.Text = "Input your email, please!!!";
                 txtEmail.Focus();
                 return;
-            } else if (password.Length == 0)
+            } 
+            else if (txtPassword.Text.Trim().Length == 0)
             {
                 //InputYourPassword.Text = "Input your password, please!!!";
                 txtPassword.Focus();
                 return;
-            } else
+            } 
+            else
             {
-                
-                string commandText = "SELECT Count(*) FROM Users WHERE Users.email = '" + email + "' AND password = hashbytes('md5', '" + password + "')";
-
-                Response.Write(commandText);
-                
-                using (SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\micha\\source\\repos\\PhaseIII\\PhaseIII\\App_Data\\phaseIII.mdf;Integrated Security=True"))
+                try
                 {
-                    SqlDataAdapter sda = new SqlDataAdapter(commandText, connection);
+                    conn.Open();
+
+                    Session["UserID"] = null;
+
+                    string email = txtEmail.Text.Trim();
+                    string password = MD5Hash(txtPassword.Text.Trim());
+
+
+                    SqlDataAdapter sda = new SqlDataAdapter("SELECT * FROM Users", connectionString);
+                    int totalRow = 0;
                     DataTable dt = new DataTable();
                     sda.Fill(dt);
-                    if(dt.Rows[0][0].ToString() == "1")
+                    conn.Close();
+
+                    totalRow = dt.Rows.Count;
+
+                    for(int i = 0; i < totalRow; i++)
                     {
-                        Response.Redirect("~/Admin/Service.aspx");
+                        if (dt.Rows[i]["Email"].ToString().Trim() == email)
+                        {
+                            if (dt.Rows[i]["Password"].ToString().Trim() == password)
+                            {
+                                Session["Email"] = dt.Rows[i]["Email"].ToString().Trim();
+                                Session["Fullname"] = dt.Rows[i]["FName"].ToString().Trim() + " " + dt.Rows[i]["LName"].ToString().Trim();
+                                Session["UserID"] = dt.Rows[i]["UserID"].ToString().Trim();
+                                Response.Redirect("~/Admin/Service.aspx");
+                            }
+                        }
                     }
+                } catch (Exception ex)
+                {
+                    Response.Write(ex.Message);
                 }
-                //Session["LoginAccount"] =
-                //Response.Redirect("~/Admin/Service.aspx");
             }
+            txtEmail.Focus();
+        }
+
+        private string MD5Hash(string text)
+        {
+            MD5 md5 = new MD5CryptoServiceProvider();
+
+            //compute hash from the bytes of text  
+            md5.ComputeHash(ASCIIEncoding.ASCII.GetBytes(text));
+
+            //get hash result after compute it  
+            byte[] result = md5.Hash;
+
+            StringBuilder strBuilder = new StringBuilder();
+            for (int i = 0; i < result.Length; i++)
+            {
+                //change it into 2 hexadecimal digits  
+                //for each byte  
+                strBuilder.Append(result[i].ToString("x2"));
+            }
+
+            return strBuilder.ToString();
         }
 
     }

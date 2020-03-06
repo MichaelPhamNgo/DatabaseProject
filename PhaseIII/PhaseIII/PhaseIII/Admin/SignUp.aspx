@@ -50,6 +50,9 @@
             width: 100px;
             color: #FFFFFF;
         }
+        .auto-style10 {
+            color: #FF0000;
+        }
         </style>
 </head>
 <body>
@@ -70,38 +73,56 @@
             <tr class="form-group">
                 <td width="30">&nbsp;</td>
                 <td class="auto-style3">&nbsp;</td>
-                <td class="auto-style2">&nbsp;</td>
+                <td class="auto-style2">
+                    <asp:Label ID="lbError" runat="server" style="color: #FF0000"></asp:Label>
+                </td>
                 <td width="30">&nbsp;</td>
             </tr>
             <tr class="form-group">
                 <td width="30">&nbsp;</td>
-                <td class="auto-style9">Username</td>
+                <td class="auto-style9">First Name</td>
                 <td class="auto-style2">
-                    <asp:TextBox ID="TextBox2" runat="server" CssClass="auto-style4" Width="300px"></asp:TextBox>
+                    <asp:TextBox ID="txtFName" runat="server" CssClass="auto-style4" Width="300px"></asp:TextBox>
                 </td>
-                <td width="30">&nbsp;</td>
+                <td width="30" class="auto-style10"><strong>(*)</strong></td>
             </tr>
+            <tr class="form-group">
+                <td width="30">&nbsp;</td>
+                <td class="auto-style9">Last Name</td>
+                <td class="auto-style2">
+                    <asp:TextBox ID="txtLName" runat="server" CssClass="auto-style4" Width="300px"></asp:TextBox>
+                </td>
+                <td width="30" class="auto-style10"><strong>(*)</strong></td>
+            </tr
             <tr class="form-group">
                 <td width="30">&nbsp;</td>
                 <td class="auto-style9">Email</td>
                 <td class="auto-style2">
-                    <asp:TextBox ID="TextBox1" runat="server" CssClass="auto-style4" Width="300px"></asp:TextBox>
+                    <asp:TextBox ID="txtEmail" runat="server" CssClass="auto-style4" Width="300px"></asp:TextBox>
                 </td>
-                <td width="30">&nbsp;</td>
+                <td width="30" class="auto-style10"><strong>(*)</strong></td>
             </tr>
             <tr>
                 <td width="30">&nbsp;</td>
                 <td class="auto-style9">Password</td>
                 <td class="auto-style2">
-                    <asp:TextBox ID="Password1" runat="server" CssClass="auto-style4" Width="300px" TextMode="Password"></asp:TextBox>
+                    <asp:TextBox ID="txtPassword" runat="server" CssClass="auto-style4" Width="300px" TextMode="Password"></asp:TextBox>
                 </td>
+                <td width="30" class="auto-style10"><strong>(*)</strong></td>
+            </tr>
+            <tr>
                 <td width="30">&nbsp;</td>
+                <td class="auto-style9">Confirm Password</td>
+                <td class="auto-style2">
+                    <asp:TextBox ID="txtConfirmpassword" runat="server" CssClass="auto-style4" Width="300px" TextMode="Password"></asp:TextBox>
+                </td>
+                <td width="30" class="auto-style10"><strong>(*)</strong></td>
             </tr>
             <tr>
                 <td width="30">&nbsp;</td>
                 <td class="auto-style3">&nbsp;</td>
                 <td class="auto-style2">
-                    <asp:Button ID="Button1" runat="server" Text="Sign Up"  CssClass="btn btn-primary"/>
+                    <asp:Button ID="btnSignUp" runat="server" Text="Sign Up"  CssClass="btn btn-primary" OnClick="btnSignUp_Click"/>
 &nbsp;<asp:Button ID="Button2" runat="server" Text="Cancel" CssClass="btn btn-secondary" />
                 </td>
                 <td width="30">&nbsp;</td>
