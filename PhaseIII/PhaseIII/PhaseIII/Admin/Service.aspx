@@ -69,8 +69,10 @@
                 <AlternatingRowStyle BackColor="#F7F7F7" />
                 <Columns>
                     <asp:BoundField DataField="ServiceId" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="ServiceId" />
-                    <asp:BoundField DataField="URL" HeaderText="URL" SortExpression="URL" />
                     <asp:BoundField DataField="ServiceName" HeaderText="Service Name" SortExpression="ServiceName" />
+                    <asp:ImageField DataImageUrlField="URL" HeaderText="Images">
+                        <ControlStyle Height="50px" Width="50px" />
+                    </asp:ImageField>
                     <asp:BoundField DataField="ServiceLength" HeaderText="Service Length (Hours)" SortExpression="ServiceLength" />
                     <asp:CommandField ButtonType="Image" CancelImageUrl="~/Admin/Images/canel.png" DeleteImageUrl="~/Admin/Images/delete.png" EditImageUrl="~/Admin/Images/edit.png" ShowEditButton="True" UpdateImageUrl="~/Admin/Images/Save.png" />
                     <asp:CommandField ButtonType="Image" CancelImageUrl="~/Admin/Images/canel.png" DeleteImageUrl="~/Admin/Images/delete.png" ShowDeleteButton="True" />

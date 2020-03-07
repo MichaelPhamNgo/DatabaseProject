@@ -43,6 +43,10 @@
             color: #33CC33;
         }
 
+        .auto-style22 {
+            color: red;
+        }
+
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -55,6 +59,12 @@
                     <td style="width:20px;">&nbsp;</td>
                     <td>
             <table>
+                <tr>
+                    <td colspan="2">
+                        <asp:Label ID="lbError" runat="server" CssClass="auto-style22"></asp:Label>
+                        <asp:Label ID="lbSubmitSuccess" runat="server" CssClass="auto-style21"></asp:Label>
+                    </td>
+                </tr>
                 <tr>
                     <td class="auto-style13">First Name</td>
                     <td class="auto-style17">
@@ -88,14 +98,14 @@
                 <tr>
                     <td class="auto-style13">Picture</td>
                     <td class="auto-style16">
-                        <input id="Text6" class="form-control-file" type="file" /></td>
+                        <asp:FileUpload ID="textFile" runat="server" />
+                    </td>
                 </tr>
                 <tr>
                     <td class="auto-style13">Phone</td>
                     <td class="auto-style16">
-                        <input id="Text7" class="form-control" type="text" />
-                        
-                        </td>
+                        <asp:TextBox ID="txtPhone" class="form-control" runat="server"></asp:TextBox>
+                    </td>
                 </tr>
                 <tr>
                     <td class="auto-style13">Group Name</td>
@@ -147,7 +157,7 @@
     </tr>    
     <tr>
         <td>
-            <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="3" DataKeyNames="UserId" GridLines="Horizontal" Width="100%" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" OnPageIndexChanging="GridView1_PageIndexChanging" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowDeleting="GridView1_RowDeleting" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating">
+            <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="3" DataKeyNames="UserId" GridLines="Horizontal" Width="100%" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" OnPageIndexChanging="GridView1_PageIndexChanging" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowDeleting="GridView1_RowDeleting" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating" OnRowDataBound="GridView1_RowDataBound">
                 <AlternatingRowStyle BackColor="#F7F7F7" />
                 <Columns>
                     <asp:TemplateField HeaderText="ID">
@@ -183,7 +193,7 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Picture" ItemStyle-Width="100" ItemStyle-HorizontalAlign = "Center">
                         <EditItemTemplate>
-                            <asp:FileUpload ID="FileUpload1" runat="server" />
+                            <asp:FileUpload ID="URL" runat="server" />
                         </EditItemTemplate>
                         <ItemTemplate>
                             <asp:Image ImageUrl='<%# "Pictures/" + (Eval("URL").ToString().Length == 0 ? "NoImage.png" : Eval("URL").ToString()) %>' runat="server" Height = "50" Width = "50" />
@@ -193,12 +203,20 @@
                     <asp:TemplateField HeaderText="Phone">
                         <ItemTemplate>  
                             <asp:Label runat="server" Text='<%# Eval("Phone") %>'></asp:Label>  
-                        </ItemTemplate>                        
+                        </ItemTemplate>    
+                        <EditItemTemplate>
+                            <asp:TextBox ID="Phone" runat="server" Text='<%# Eval("Phone") %>'></asp:TextBox>
+                        </EditItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Group Name">
+                        <EditItemTemplate>
+                            <asp:DropDownList ID="GroupName" runat="server">  
+                        </asp:DropDownList>  
+                        </EditItemTemplate>
                         <ItemTemplate>  
-                            <asp:Label runat="server" Text='<%# Eval("Name") %>'></asp:Label>  
-                        </ItemTemplate>                        
+                            <asp:Label runat="server" Text='<%# Eval("GroupName") %>'></asp:Label>  
+                        </ItemTemplate>
+                        
                     </asp:TemplateField>
                     <asp:CommandField ButtonType="Image" CancelImageUrl="~/Admin/Images/canel.png" EditImageUrl="~/Admin/Images/edit.png" ShowEditButton="True" UpdateImageUrl="~/Admin/Images/Save.png" />
                     <asp:CommandField ButtonType="Image" DeleteImageUrl="~/Admin/Images/remove.png" ShowDeleteButton="True" />

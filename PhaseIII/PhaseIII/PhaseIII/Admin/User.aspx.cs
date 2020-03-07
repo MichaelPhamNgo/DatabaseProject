@@ -19,7 +19,7 @@ namespace PhaseIII.Admin
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
-            {
+            {                
                 gvbind();
             }
         }
@@ -30,7 +30,8 @@ namespace PhaseIII.Admin
             try
             {
                 conn.Open();
-                SqlDataAdapter da = new SqlDataAdapter("SELECT U.UserId, U.FName, U.LName, U.Email, U.URL, U.Phone, G.Name FROM Users AS U JOIN Groups AS G ON U.GroupId = G.GroupId", connectionString);
+                SqlDataAdapter da = new SqlDataAdapter("SELECT U.UserId AS 'UserId', U.FName AS 'FName', U.LName AS 'LName', U.Email AS 'Email', U.URL" +
+                    " AS 'URL', U.Phone AS 'Phone', G.Name AS 'GroupName' FROM Users AS U JOIN Groups AS G ON U.GroupId = G.GroupId", connectionString);
                 DataSet ds = new DataSet();
                 da.Fill(ds);
                 if (!object.Equals(ds, null))
@@ -45,7 +46,7 @@ namespace PhaseIII.Admin
             }
             catch (Exception ex)
             {
-                Response.Write(ex.Message);
+
             }
             finally
             {
@@ -74,7 +75,7 @@ namespace PhaseIII.Admin
             }
             catch (Exception ex)
             {
-                Response.Write(ex.Message);
+
             }
             finally
             {
@@ -84,7 +85,76 @@ namespace PhaseIII.Admin
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
+            SqlConnection conn = new SqlConnection(connectionString);
 
+            try
+            {
+                conn.Open();
+                string textFName = txtFName.Text;
+                string textLName = txtLName.Text;
+                string textEmail = txtEmail.Text;
+                string textPassword = MD5Hash(txtPassword.Text);
+                if(txtPassword.Text.CompareTo(txtConfirmpassword.Text) != 0)
+                {
+                    lbError.Text = "Password and confirm password don't match!";
+                    return;
+                }
+
+
+                if (textFile.HasFile)
+                {
+                    try
+                    {
+                        if (textFile.PostedFile.ContentType == "image/jpeg")
+                        {
+                            if (textFile.PostedFile.ContentLength < 102400)
+                            {
+                                Random random = new Random((int)DateTime.Now.Ticks);
+                                int numIterations = 0;
+                                numIterations = random.Next(1, 1000);
+                                textFile.SaveAs(Server.MapPath("Pictures/") + numIterations + Path.GetFileName(textFile.FileName));
+                                string url = numIterations + Path.GetFileName(textFile.FileName);
+                                string textPhone = txtPhone.Text;
+                                Int64 txtGroupId = Convert.ToInt64(DropDownList1.SelectedValue);
+                                string txtSalt = MD5Hash(DateTime.Now.ToString("hh:mm:ss"));
+                                //check file was submitted
+                                SqlCommand cmd = new SqlCommand("insert into Users(FName, LName, Email, Password, Salt, URL, Phone, GroupId) " +
+                                                                "values ('" + textFName + "', '" + textLName + "', '" + textEmail + "', '" + textPassword
+                                                                + "', '" + txtSalt + "', '" + url + "',  '" + textPhone + "',  " + txtGroupId + ")", conn);
+
+                                cmd.ExecuteNonQuery();
+                                lbSubmitSuccess.Text = "Insert User successful";
+                                gvbind();
+                            }
+                            else
+                            {
+                                lbError.Text = "Upload status: The file has to be less than 100 kb!";
+                            }
+                                
+                        }
+                        else
+                        {
+                            lbError.Text = "Upload status: Only JPEG files are accepted!";
+                        }
+                            
+                    }
+                    catch (Exception ex)
+                    {
+                        lbError.Text = "Upload status: The file could not be uploaded. The following error occured: " + ex.Message;
+                    }
+                    return;
+                }
+                
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
 
         protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
@@ -100,7 +170,7 @@ namespace PhaseIII.Admin
             }
             catch (Exception ex)
             {
-                Response.Write(ex.Message);
+
             }
             finally
             {
@@ -122,21 +192,25 @@ namespace PhaseIII.Admin
                     int userid = Convert.ToInt32(GridView1.DataKeys[e.RowIndex].Value.ToString());
                     GridViewRow row = (GridViewRow)GridView1.Rows[e.RowIndex];
                     Label lblID = (Label)row.FindControl("UserId");
-                    TextBox textFName = (TextBox)row.FindControl("FName");
-                    TextBox textLName = (TextBox)row.FindControl("LName");
-                    TextBox textEmail = (TextBox)row.FindControl("Email");
-                    FileUpload fu = (FileUpload)row.FindControl("FileUpload1");
-                    TextBox txtPhone = (TextBox)row.FindControl("Phone");
-                    TextBox txtGroupId = (TextBox)row.FindControl("GroupId");
-
+                    string textFName = ((TextBox)row.FindControl("FName")).Text;
+                    string textLName = ((TextBox)row.FindControl("LName")).Text;
+                    string textEmail = ((TextBox)row.FindControl("Email")).Text;
+                    FileUpload fu = (FileUpload)row.FindControl("URL");
+                    string txtPhone = ((TextBox)row.FindControl("Phone")).Text;
+                    Int64 txtGroupId = Convert.ToInt64(((DropDownList)row.FindControl("GroupName")).SelectedValue);
                     Random random = new Random((int)DateTime.Now.Ticks);
                     int numIterations = 0;
                     numIterations = random.Next(1, 1000);
                     fu.SaveAs(Server.MapPath("Pictures/") + numIterations + Path.GetFileName(fu.FileName));
 
                     string url = numIterations + Path.GetFileName(fu.FileName);
-                    Response.Write("update Users set FName='" + textFName.Text + "', LName='" + textLName.Text + "',textEmail='" + textEmail.Text + "', URL = '" + url + "' where UserId='" + userid + "'");
-                    SqlCommand cmd = new SqlCommand("update Users set FName='" + textFName.Text + "', LName='" + textLName.Text + "',Email='" + textEmail.Text + "', URL = '" + url + "' where UserId='" + userid + "'", conn);
+                    SqlCommand cmd = new SqlCommand("update Users set FName='" + textFName 
+                                                                + "', LName='" + textLName 
+                                                                + "',Email='" + textEmail 
+                                                                + "', URL = '" + url
+                                                                + "', Phone = '" + txtPhone
+                                                                + "', GroupId = " + txtGroupId
+                                                                + " where UserId='" + userid + "'", conn);
 
                     cmd.ExecuteNonQuery();
                     GridView1.EditIndex = -1;
@@ -145,7 +219,7 @@ namespace PhaseIII.Admin
                 }
                 catch (Exception ex)
                 {
-                    Response.Write(ex.Message);
+
                 }
                 finally
                 {
@@ -170,7 +244,7 @@ namespace PhaseIII.Admin
                 SqlConnection conn = new SqlConnection(connectionString);
                 try
                 {
-                    DropDownList DropDownList1 = (e.Row.FindControl("DropDownGroup") as DropDownList);
+                    DropDownList DropDownList1 = (e.Row.FindControl("GroupName") as DropDownList);
                     SqlDataAdapter sda = new SqlDataAdapter("select GroupID, Name from Groups", conn);
                     DataTable dt = new DataTable();
                     sda.Fill(dt);   
@@ -183,13 +257,33 @@ namespace PhaseIII.Admin
                 } 
                 catch (Exception ex)
                 {
-                    Response.Write(ex.Message);
-                }
+        }
                 finally
                 {
                     conn.Close();
                 }
             }
+        }
+
+        private string MD5Hash(string text)
+        {
+            MD5 md5 = new MD5CryptoServiceProvider();
+
+            //compute hash from the bytes of text  
+            md5.ComputeHash(ASCIIEncoding.ASCII.GetBytes(text));
+
+            //get hash result after compute it  
+            byte[] result = md5.Hash;
+
+            StringBuilder strBuilder = new StringBuilder();
+            for (int i = 0; i < result.Length; i++)
+            {
+                //change it into 2 hexadecimal digits  
+                //for each byte  
+                strBuilder.Append(result[i].ToString("x2"));
+            }
+
+            return strBuilder.ToString();
         }
     }
 }
