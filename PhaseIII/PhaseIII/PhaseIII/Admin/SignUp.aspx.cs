@@ -84,10 +84,12 @@ namespace PhaseIII
 
 
                         // Adding parameter to SqlCommand
+                        /*
                         comm.Parameters.Add(rollno);
                         comm.Parameters.Add(name);
                         comm.Parameters.Add(course);
                         comm.Parameters.Add(city);
+                        */
 
                         SqlDataAdapter sda = new SqlDataAdapter("SELECT * FROM Users", connectionString);
                         int totalRow = 0;

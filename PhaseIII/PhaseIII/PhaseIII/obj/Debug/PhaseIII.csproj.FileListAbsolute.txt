@@ -172,3 +172,123 @@ C:\Users\michaelphamn\source\repos\Project\DatabaseProject\PhaseIII\PhaseIII\Pha
 C:\Users\michaelphamn\source\repos\Project\DatabaseProject\PhaseIII\PhaseIII\PhaseIII\obj\Debug\PhaseIII.csproj.CopyComplete
 C:\Users\michaelphamn\source\repos\Project\DatabaseProject\PhaseIII\PhaseIII\PhaseIII\obj\Debug\PhaseIII.dll
 C:\Users\michaelphamn\source\repos\Project\DatabaseProject\PhaseIII\PhaseIII\PhaseIII\obj\Debug\PhaseIII.pdb
+P:\New folder\PhaseIII\PhaseIII\PhaseIII\obj\Debug\PhaseIII.csprojAssemblyReference.cache
+P:\New folder\PhaseIII\PhaseIII\PhaseIII\obj\Debug\PhaseIII.csproj.CoreCompileInputs.cache
+P:\New folder\PhaseIII\PhaseIII\PhaseIII\obj\Debug\PhaseIII.dll
+P:\New folder\PhaseIII\PhaseIII\PhaseIII\obj\Debug\PhaseIII.pdb
+P:\New folder\PhaseIII\PhaseIII\PhaseIII\bin\PhaseIII.dll.config
+P:\New folder\PhaseIII\PhaseIII\PhaseIII\bin\PhaseIII.dll
+P:\New folder\PhaseIII\PhaseIII\PhaseIII\bin\PhaseIII.pdb
+P:\New folder\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\csc.exe
+P:\New folder\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\csc.exe.config
+P:\New folder\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\csc.rsp
+P:\New folder\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\csi.exe
+P:\New folder\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\csi.exe.config
+P:\New folder\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\csi.rsp
+P:\New folder\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+P:\New folder\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+P:\New folder\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+P:\New folder\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\Microsoft.CodeAnalysis.dll
+P:\New folder\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+P:\New folder\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+P:\New folder\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\Microsoft.CSharp.Core.targets
+P:\New folder\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+P:\New folder\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+P:\New folder\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\Microsoft.Managed.Core.targets
+P:\New folder\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\Microsoft.VisualBasic.Core.targets
+P:\New folder\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\Microsoft.Win32.Primitives.dll
+P:\New folder\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\System.AppContext.dll
+P:\New folder\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\System.Collections.Immutable.dll
+P:\New folder\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\System.Console.dll
+P:\New folder\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+P:\New folder\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+P:\New folder\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\System.Diagnostics.StackTrace.dll
+P:\New folder\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\System.Globalization.Calendars.dll
+P:\New folder\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\System.IO.Compression.dll
+P:\New folder\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\System.IO.Compression.ZipFile.dll
+P:\New folder\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\System.IO.FileSystem.dll
+P:\New folder\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\System.IO.FileSystem.Primitives.dll
+P:\New folder\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\System.Net.Http.dll
+P:\New folder\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\System.Net.Sockets.dll
+P:\New folder\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\System.Reflection.Metadata.dll
+P:\New folder\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+P:\New folder\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+P:\New folder\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\System.Security.Cryptography.Encoding.dll
+P:\New folder\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\System.Security.Cryptography.Primitives.dll
+P:\New folder\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+P:\New folder\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\System.Text.Encoding.CodePages.dll
+P:\New folder\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\System.Threading.Tasks.Extensions.dll
+P:\New folder\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\System.ValueTuple.dll
+P:\New folder\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\System.Xml.ReaderWriter.dll
+P:\New folder\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\System.Xml.XmlDocument.dll
+P:\New folder\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\System.Xml.XPath.dll
+P:\New folder\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\System.Xml.XPath.XDocument.dll
+P:\New folder\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\vbc.exe
+P:\New folder\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\vbc.exe.config
+P:\New folder\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\vbc.rsp
+P:\New folder\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\VBCSCompiler.exe
+P:\New folder\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\VBCSCompiler.exe.config
+P:\New folder\PhaseIII\PhaseIII\PhaseIII\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+P:\New folder\PhaseIII\PhaseIII\PhaseIII\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+P:\New folder\PhaseIII\PhaseIII\PhaseIII\obj\Debug\PhaseIII.csproj.CopyComplete
+P:\gitconnected\PhaseIII\PhaseIII\PhaseIII\bin\PhaseIII.dll.config
+P:\gitconnected\PhaseIII\PhaseIII\PhaseIII\bin\PhaseIII.dll
+P:\gitconnected\PhaseIII\PhaseIII\PhaseIII\bin\PhaseIII.pdb
+P:\gitconnected\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\csc.exe
+P:\gitconnected\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\csc.exe.config
+P:\gitconnected\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\csc.rsp
+P:\gitconnected\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\csi.exe
+P:\gitconnected\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\csi.exe.config
+P:\gitconnected\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\csi.rsp
+P:\gitconnected\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+P:\gitconnected\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+P:\gitconnected\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+P:\gitconnected\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\Microsoft.CodeAnalysis.dll
+P:\gitconnected\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+P:\gitconnected\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+P:\gitconnected\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\Microsoft.CSharp.Core.targets
+P:\gitconnected\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+P:\gitconnected\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+P:\gitconnected\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\Microsoft.Managed.Core.targets
+P:\gitconnected\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\Microsoft.VisualBasic.Core.targets
+P:\gitconnected\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\Microsoft.Win32.Primitives.dll
+P:\gitconnected\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\System.AppContext.dll
+P:\gitconnected\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\System.Collections.Immutable.dll
+P:\gitconnected\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\System.Console.dll
+P:\gitconnected\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+P:\gitconnected\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+P:\gitconnected\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\System.Diagnostics.StackTrace.dll
+P:\gitconnected\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\System.Globalization.Calendars.dll
+P:\gitconnected\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\System.IO.Compression.dll
+P:\gitconnected\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\System.IO.Compression.ZipFile.dll
+P:\gitconnected\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\System.IO.FileSystem.dll
+P:\gitconnected\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\System.IO.FileSystem.Primitives.dll
+P:\gitconnected\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\System.Net.Http.dll
+P:\gitconnected\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\System.Net.Sockets.dll
+P:\gitconnected\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\System.Reflection.Metadata.dll
+P:\gitconnected\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+P:\gitconnected\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+P:\gitconnected\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\System.Security.Cryptography.Encoding.dll
+P:\gitconnected\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\System.Security.Cryptography.Primitives.dll
+P:\gitconnected\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+P:\gitconnected\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\System.Text.Encoding.CodePages.dll
+P:\gitconnected\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\System.Threading.Tasks.Extensions.dll
+P:\gitconnected\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\System.ValueTuple.dll
+P:\gitconnected\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\System.Xml.ReaderWriter.dll
+P:\gitconnected\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\System.Xml.XmlDocument.dll
+P:\gitconnected\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\System.Xml.XPath.dll
+P:\gitconnected\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\System.Xml.XPath.XDocument.dll
+P:\gitconnected\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\vbc.exe
+P:\gitconnected\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\vbc.exe.config
+P:\gitconnected\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\vbc.rsp
+P:\gitconnected\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\VBCSCompiler.exe
+P:\gitconnected\PhaseIII\PhaseIII\PhaseIII\bin\roslyn\VBCSCompiler.exe.config
+P:\gitconnected\PhaseIII\PhaseIII\PhaseIII\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+P:\gitconnected\PhaseIII\PhaseIII\PhaseIII\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+P:\gitconnected\PhaseIII\PhaseIII\PhaseIII\obj\Debug\PhaseIII.csprojAssemblyReference.cache
+P:\gitconnected\PhaseIII\PhaseIII\PhaseIII\obj\Debug\PhaseIII.csproj.CoreCompileInputs.cache
+P:\gitconnected\PhaseIII\PhaseIII\PhaseIII\obj\Debug\PhaseIII.csproj.CopyComplete
+P:\gitconnected\PhaseIII\PhaseIII\PhaseIII\obj\Debug\PhaseIII.dll
+P:\gitconnected\PhaseIII\PhaseIII\PhaseIII\obj\Debug\PhaseIII.pdb
+P:\gitconnected\PhaseIII\PhaseIII\PhaseIII\bin\Newtonsoft.Json.dll
+P:\gitconnected\PhaseIII\PhaseIII\PhaseIII\bin\Newtonsoft.Json.xml
