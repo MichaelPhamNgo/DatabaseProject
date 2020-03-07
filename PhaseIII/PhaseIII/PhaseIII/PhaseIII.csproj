@@ -80,6 +80,7 @@
     <Content Include="Admin\Images\remove.png" />
     <Content Include="Admin\Images\Save.png" />
     <Content Include="Admin\Images\uwt.png" />
+    <Content Include="Admin\Pictures\NoImage.png" />
     <Content Include="Admin\Service.aspx" />
     <Content Include="Admin\ServiceBarber.aspx" />
     <Content Include="Admin\User.aspx" />

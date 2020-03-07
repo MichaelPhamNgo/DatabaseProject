@@ -50,6 +50,9 @@
             width: 100px;
             color: #FFFFFF;
         }
+        .auto-style10 {
+            color: #FF0000;
+        }
         </style>
 </head>
 <body>
@@ -71,7 +74,9 @@
             <tr class="form-group">
                 <td width="30">&nbsp;</td>
                 <td class="auto-style3">&nbsp;</td>
-                <td class="auto-style2">&nbsp;</td>
+                <td class="auto-style2">
+                    <asp:Label ID="lbError" runat="server" CssClass="auto-style10"></asp:Label>
+                </td>
                 <td width="30">&nbsp;</td>
             </tr>
             <tr class="form-group">
@@ -79,7 +84,7 @@
                 <td class="auto-style9">Email</td>
                 <td class="auto-style2">
                     <asp:TextBox ID="txtEmail" runat="server" CssClass="auto-style4" Width="320px"></asp:TextBox>
-                &nbsp;</td>
+                </td>
                 <td width="30">&nbsp;</td>
             </tr>
             <tr>

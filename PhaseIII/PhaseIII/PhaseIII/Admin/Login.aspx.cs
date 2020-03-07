@@ -29,13 +29,13 @@ namespace PhaseIII
 
             if (txtEmail.Text.Trim().Length == 0)
             {
-                //InputYourEmail.Text = "Input your email, please!!!";
+                lbError.Text = "Input your email, please!!!";
                 txtEmail.Focus();
                 return;
             } 
             else if (txtPassword.Text.Trim().Length == 0)
             {
-                //InputYourPassword.Text = "Input your password, please!!!";
+                lbError.Text = "Input your password, please!!!";
                 txtPassword.Focus();
                 return;
             } 
@@ -55,8 +55,6 @@ namespace PhaseIII
                     int totalRow = 0;
                     DataTable dt = new DataTable();
                     sda.Fill(dt);
-                    conn.Close();
-
                     totalRow = dt.Rows.Count;
 
                     for(int i = 0; i < totalRow; i++)
@@ -68,16 +66,21 @@ namespace PhaseIII
                                 Session["Email"] = dt.Rows[i]["Email"].ToString().Trim();
                                 Session["Fullname"] = dt.Rows[i]["FName"].ToString().Trim() + " " + dt.Rows[i]["LName"].ToString().Trim();
                                 Session["UserID"] = dt.Rows[i]["UserID"].ToString().Trim();
-                                Response.Redirect("~/Admin/Service.aspx");
+                                Response.Redirect("~/Admin/UserLocationService.aspx");
                             }
                         }
                     }
+                    lbError.Text = "Username or password is not correct!!!";
+                    txtEmail.Focus();
                 } catch (Exception ex)
                 {
                     Response.Write(ex.Message);
                 }
+                finally
+                {
+                    conn.Close();
+                }
             }
-            txtEmail.Focus();
         }
 
         private string MD5Hash(string text)

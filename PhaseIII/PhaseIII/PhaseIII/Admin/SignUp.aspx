@@ -53,6 +53,9 @@
         .auto-style10 {
             color: #FF0000;
         }
+        .auto-style11 {
+            color: #33CC33;
+        }
         </style>
 </head>
 <body>
@@ -75,6 +78,7 @@
                 <td class="auto-style3">&nbsp;</td>
                 <td class="auto-style2">
                     <asp:Label ID="lbError" runat="server" style="color: #FF0000"></asp:Label>
+                    <asp:Label ID="lbSuccess" runat="server" CssClass="auto-style11"></asp:Label>
                 </td>
                 <td width="30">&nbsp;</td>
             </tr>

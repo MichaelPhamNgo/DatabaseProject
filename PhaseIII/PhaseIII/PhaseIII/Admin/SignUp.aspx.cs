@@ -16,12 +16,10 @@ namespace PhaseIII
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-        }
-
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-
+            if (!IsPostBack)
+            {
+                Session.RemoveAll();
+            }
         }
 
         protected void btnSignUp_Click(object sender, EventArgs e)
@@ -70,7 +68,7 @@ namespace PhaseIII
                     try
                     {
                         conn.Open();
-
+                        SqlCommand comm = new SqlCommand();
                         string fname = txtFName.Text.Trim();
                         string lname = txtLName.Text.Trim();
                         string email = txtEmail.Text.Trim();
@@ -78,42 +76,53 @@ namespace PhaseIII
 
                         // creating instance of SsqlParameter
                         SqlParameter parFname = new SqlParameter("@FName", SqlDbType.VarChar);
-                        SqlParameter parLname = new SqlParameter("@n", SqlDbType.VarChar);
-                        SqlParameter parEmail = new SqlParameter("@c", SqlDbType.VarChar);
-                        SqlParameter parPass = new SqlParameter("@ci", SqlDbType.VarChar);
+                        SqlParameter parLname = new SqlParameter("@LName", SqlDbType.VarChar);
+                        SqlParameter parEmail = new SqlParameter("@Email", SqlDbType.VarChar);
+                        SqlParameter parPass = new SqlParameter("@Password", SqlDbType.VarChar);
+                        SqlParameter parSalt = new SqlParameter("@Salt", SqlDbType.VarChar);
+                        SqlParameter parPhone = new SqlParameter("@Phone", SqlDbType.VarChar);
+                        SqlParameter parGroupId = new SqlParameter("@GroupId", SqlDbType.Int);
 
 
                         // Adding parameter to SqlCommand
-                        comm.Parameters.Add(rollno);
-                        comm.Parameters.Add(name);
-                        comm.Parameters.Add(course);
-                        comm.Parameters.Add(city);
+                        comm.Parameters.Add(parFname);
+                        comm.Parameters.Add(parLname);
+                        comm.Parameters.Add(parEmail);
+                        comm.Parameters.Add(parPass);
+                        comm.Parameters.Add(parSalt);
+                        comm.Parameters.Add(parPhone);
+                        comm.Parameters.Add(parGroupId);
 
-                        SqlDataAdapter sda = new SqlDataAdapter("SELECT * FROM Users", connectionString);
-                        int totalRow = 0;
-                        DataTable dt = new DataTable();
-                        sda.Fill(dt);
-                        conn.Close();
+                        // Setting values
+                        parFname.Value = fname;
+                        parLname.Value = lname;
+                        parEmail.Value = email;
+                        parPass.Value = password;
+                        parSalt.Value = MD5Hash(DateTime.Now.ToString("hh:mm:ss"));
+                        parPhone.Value = "000-000-0000";
+                        parGroupId.Value = 1;
 
-                        totalRow = dt.Rows.Count;
+                        // adding connection to SqlCommand
+                        comm.Connection = conn;
 
-                        for (int i = 0; i < totalRow; i++)
-                        {
-                            if (dt.Rows[i]["Email"].ToString().Trim() == email)
-                            {
-                                if (dt.Rows[i]["Password"].ToString().Trim() == password)
-                                {
-                                    Session["Email"] = dt.Rows[i]["Email"].ToString().Trim();
-                                    Session["Fullname"] = dt.Rows[i]["FName"].ToString().Trim() + " " + dt.Rows[i]["LName"].ToString().Trim();
-                                    Session["UserID"] = dt.Rows[i]["UserID"].ToString().Trim();
-                                    Response.Redirect("~/Admin/Service.aspx");
-                                }
-                            }
-                        }
+                        // Sql Statement
+                        comm.CommandText = "insert into Users(FName, LName, Email, Password, Salt, Phone, GroupId) values(@FName,@LName,@Email,@Password,@Salt,@Phone,@GroupId)";
+                        comm.ExecuteNonQuery();
+
+                        lbSuccess.Text = "Create new account successful";
+                        txtFName.Text = "";
+                        txtLName.Text = "";
+                        txtPassword.Text = "";
+                        txtConfirmpassword.Text = "";
+                        txtEmail.Text = "";
                     }
                     catch (Exception ex)
                     {
                         Response.Write(ex.Message);
+                    }
+                    finally
+                    {
+                        conn.Close();
                     }
 
                 }

@@ -16,12 +16,17 @@ namespace PhaseIII.Admin
                 Response.Redirect("~/Admin/Login.aspx");
             }
 
-
             if (!IsPostBack)
             {
                 lbUserName.Text = Session["Fullname"].ToString();
             }
 
+        }
+
+        protected void LinkLogout_Click(object sender, EventArgs e)
+        {
+            Session.RemoveAll();
+            Response.Redirect("~/Admin/Login.aspx");
         }
     }
 }

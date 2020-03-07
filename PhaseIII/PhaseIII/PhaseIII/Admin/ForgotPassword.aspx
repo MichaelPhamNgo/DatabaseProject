@@ -48,6 +48,16 @@
             padding: 5px 0;
             text-align: center;
         }
+        .auto-style11 {
+            color: #FF0000;
+        }
+        .auto-style12 {
+            padding: 5px 0;
+            text-align: left;
+        }
+        .auto-style13 {
+            color: #33CC33;
+        }
         </style>
 </head>
 <body>
@@ -71,15 +81,23 @@
             </tr>
             <tr>
                 <td width="30">&nbsp;</td>
+                <td class="auto-style12">
+                    <asp:Label ID="lbError" runat="server" CssClass="auto-style11"></asp:Label>
+                    <asp:Label ID="lbSuccess" runat="server" CssClass="auto-style13"></asp:Label>
+                </td>
+                <td width="30">&nbsp;</td>
+            </tr>           
+            <tr>
+                <td width="30">&nbsp;</td>
                 <td class="auto-style10">
-                    <asp:TextBox ID="Password1" runat="server" CssClass="auto-style4" Width="100%" TextMode="Password"></asp:TextBox>
+                    <asp:TextBox ID="txtEmail" runat="server" CssClass="auto-style4" Width="100%"></asp:TextBox>
                 </td>
                 <td width="30">&nbsp;</td>
             </tr>           
             <tr>
                 <td width="30">&nbsp;</td>
                 <td class="auto-style2">
-                    <asp:Button ID="Button1" runat="server" Text="Send password reset email"  CssClass="btn btn-primary btn-block"/>
+                    <asp:Button ID="btnResetpassword" runat="server" Text="Send password reset email"  CssClass="btn btn-primary btn-block" OnClick="btnResetpassword_Click"/>
 &nbsp;</td>
                 <td width="30">&nbsp;</td>
             </tr>

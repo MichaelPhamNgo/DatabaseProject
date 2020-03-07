@@ -76,17 +76,7 @@
             width: 2px;
         }
         .auto-style11 {
-            text-align: center;
-            padding: 10px;
-            font-weight: 600;
-            border-bottom: 1px dashed #4B2E83;
-            color: #4B2E83;
-        }
-        .auto-style12 {
-            text-align: center;
-            padding: 10px;
-            font-weight: 600;
-            height: 39px;
+            color: #0066FF;
         }
     </style>
 </head>
@@ -96,6 +86,7 @@
             <tr class="header">
                 <td class="auto-style2" colspan="2">Welcome:
                     <asp:Label ID="lbUserName" runat="server" Text="UserName"></asp:Label>
+                    &nbsp;<asp:LinkButton ID="LinkLogout" runat="server" CssClass="auto-style11" OnClick="LinkLogout_Click">Logout</asp:LinkButton>
                     <br />
                     <strong><span class="auto-style3">Admin Control Panel</span></strong></td>
             </tr>
