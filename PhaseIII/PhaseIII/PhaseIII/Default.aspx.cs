@@ -36,8 +36,11 @@ namespace PhaseIII
 
             client.DefaultRequestHeaders.Accept.Add(
             new MediaTypeWithQualityHeaderValue("application/json"));
-            client.BaseAddress = new Uri("https://maps.googleapis.com/maps/api/geocode/json");
-            var response = await client.GetAsync(path);
+            if (client.BaseAddress == null)
+            {
+                client.BaseAddress = new Uri("https://maps.googleapis.com/maps/api/geocode/json");
+            }
+                var response = await client.GetAsync(path);
 
             return response.Content.ReadAsStringAsync().Result;
         }
@@ -46,17 +49,19 @@ namespace PhaseIII
 
             // List data respons
             string zip = txtSearchZip.Text;
+            string range = dropDownListRange.SelectedValue;
             string result = await GeoLatLon("?address=" + zip + API_KEY);
             Console.WriteLine(result);
             var parsed = JObject.Parse(result);
             var loc = parsed.SelectToken("$.results[0].geometry.location").Value<JToken>();
-            float lat = loc.SelectToken("lat").Value<float>();
-            float lng = loc.SelectToken("lng").Value <float>();
+            double lat = loc.SelectToken("lat").Value<float>();
+            double lng = loc.SelectToken("lng").Value <float>();
             string connectionString = WebConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             SqlConnection conn = new SqlConnection(connectionString);
-            SqlCommand selectCommand = new SqlCommand("SELECT  Name, Phone" +
-            "FROM(SELECT FName Name, Phone, CurrentLocation Location, Locations.Latitude Lat, Locations.Longtitude Lon FROM Users, Locations WHERE Users.CurrentLocation = Locations.LocationId AND Users.GroupId = 2)" +
-            "AS CurrentLocations WHERE(acos(sin(@Lat * pi() / 180) * sin(Lat * pi() / 180) + cos(@Lat * pi() / 180) * cos(Lat * pi() / 180) * cos(pi() / 180 * (Lon - (@Lng)))) * 3958.8 <= 100)", conn);
+            string selectCommand = "SELECT  Name, Phone" +
+            " FROM(SELECT FName Name, Phone, CurrentLocation Location, Locations.Latitude Lat, Locations.Longtitude Lon FROM Users, Locations WHERE Users.CurrentLocation = Locations.LocationId AND Users.GroupId = 2)" +
+            "AS CurrentLocations WHERE(acos(sin(" + lat + " * pi() / 180) * sin(Lat * pi() / 180) + cos(" + lat + " * pi() / 180) * cos(Lat * pi() / 180) * cos(pi() / 180 * (Lon - (" + lng + ")))) * 3958.8 <= " + range + ")";
+            /*
             selectCommand.Parameters.Add(new SqlParameter
             {
                 ParameterName = "@Lat",
@@ -69,7 +74,6 @@ namespace PhaseIII
                 Value = lng,
                 SqlDbType = SqlDbType.Float,
             });
-            /*
             selectCommand.Parameters.Add(new SqlParameter
             {
                 ParameterName = "@Dist",
@@ -82,8 +86,7 @@ namespace PhaseIII
                 
                 conn.Open();
 
-                SqlDataAdapter sda = new SqlDataAdapter();
-                sda.SelectCommand = selectCommand;
+                SqlDataAdapter sda = new SqlDataAdapter(selectCommand, conn);
                 DataTable dt = new DataTable();
                 sda.Fill(dt);
                 Console.Write(dt);

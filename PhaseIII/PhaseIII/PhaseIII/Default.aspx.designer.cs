@@ -22,6 +22,15 @@ namespace PhaseIII {
         protected global::System.Web.UI.WebControls.TextBox txtSearchZip;
         
         /// <summary>
+        /// dropDownListRange control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList dropDownListRange;
+        
+        /// <summary>
         /// btnSearchZip control.
         /// </summary>
         /// <remarks>
