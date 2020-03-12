@@ -72,13 +72,19 @@
             </td>
             <td class="col-1"></td>
         </tr>
+		<tr class="form-group">
+            <td class="coll-1">&nbsp;</td>
+            <td class="auto-style12">Maximum Service Amount</td>
+            <td class="coll-3">
+                <asp:TextBox ID="MaximumServiceBox" runat="server" Width="600px" CssClass="form-control"></asp:TextBox>
+            </td>
+            <td class="col-1">&nbsp;</td>
+        </tr>
          <tr class="form-group">
             <td class="coll-1">&nbsp;</td>
-            <td class="auto-style12">Service Type</td>
+            <td class="auto-style12">Minimum Service Amount</td>
             <td class="coll-3">
-                <asp:DropDownList ID="ServiceList" runat="server" DataSourceID="SqlDataSource1" DataTextField="ServiceName" DataValueField="ServiceId" CssClass="form-control">
-                </asp:DropDownList>
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Services]"></asp:SqlDataSource>
+                <asp:TextBox ID="MinimumServiceBox" runat="server" Width="600px" CssClass="form-control"></asp:TextBox>
             </td>
             <td class="col-1">&nbsp;</td>
         </tr>
