@@ -36,24 +36,16 @@
 			display: inline-block;
 			color: #4B2E83;
 			padding: 10px;
-			width: 98px;
 			font-weight: 600;
 			height: 50px;
 		}
-		.auto-style15 {
-			padding: 10px;
-			font-size: 20px;
-			color: #4B2E83;
-			font-weight: bold;
-			height: 50px;
-		}
-
+		
     </style>
     <table class="table-borderless">
         <tr>
             <td class="coll-1"></td>
-            <td class="auto-style12"></td>
-            <td class="coll-Find Barbers With Options"></td>
+            <td class="coll-2"></td>
+            <td class="coll-3">Find Barbers Nearby</td>
             <td class="coll-1"></td>
         </tr>
         <tr class="form-group">
@@ -76,7 +68,7 @@
             <td class="coll-1">&nbsp;</td>
             <td class="auto-style12">Service Type</td>
             <td class="coll-3">
-                <asp:DropDownList ID="ServiceList" runat="server" DataSourceID="SqlDataSource1" DataTextField="ServiceName" DataValueField="ServiceId" CssClass="form-control">
+                <asp:DropDownList ID="ServiceList" runat="server" DataSourceID="SqlDataSource1" DataTextField="ServiceName" DataValueField="ServiceId" CssClass="form-control">                
                 </asp:DropDownList>
                 <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Services]"></asp:SqlDataSource>
             </td>
@@ -92,11 +84,76 @@
             <td class="coll-1">&nbsp;</td>
         </tr>
         <tr>
-            <td class="auto-style13"></td>
-            <td class="auto-style14"></td>
-            <td class="auto-style15">
-				<asp:GridView ID="SearchResults" runat="server" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Horizontal">
+            <td colspan="4">
+				<asp:GridView ID="SearchResults" runat="server" AutoGenerateColumns="False" CellPadding="3" GridLines="Horizontal" Width="100%" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px">
 					<AlternatingRowStyle BackColor="#F7F7F7" />
+                    <Columns>
+                        <asp:TemplateField HeaderText="ID">
+                        <ItemTemplate>
+                            <asp:Label ID="BarBerID" runat="server" Text='<%# Eval("UserId") %>'></asp:Label>
+                        </ItemTemplate>
+                        <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                        <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="First Name">
+                        <ItemTemplate>  
+                            <asp:Label runat="server" Text='<%# Eval("FName") %>'></asp:Label>  
+                        </ItemTemplate>
+                        <EditItemTemplate>
+                            <asp:TextBox ID="FName" runat="server" Text='<%# Eval("FName") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Last Name">
+                        <ItemTemplate>  
+                            <asp:Label runat="server" Text='<%# Eval("LName") %>'></asp:Label>  
+                        </ItemTemplate>
+                        <EditItemTemplate>
+                            <asp:TextBox ID="LName" runat="server" Text='<%# Eval("LName") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Email">
+                    <ItemTemplate>  
+                        <asp:Label runat="server" Text='<%# Eval("Email") %>'></asp:Label>  
+                    </ItemTemplate>
+                    <EditItemTemplate>
+                        <asp:TextBox ID="Phone" runat="server" Text='<%# Eval("Email") %>'></asp:TextBox>
+                    </EditItemTemplate>
+                    </asp:TemplateField>    
+                    <asp:TemplateField HeaderText="Phone">
+                        <ItemTemplate>  
+                            <asp:Label runat="server" Text='<%# Eval("Phone") %>'></asp:Label>  
+                        </ItemTemplate>
+                        <EditItemTemplate>
+                            <asp:TextBox ID="Phone" runat="server" Text='<%# Eval("Phone") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                    </asp:TemplateField>   
+                    <asp:TemplateField HeaderText="Style" ItemStyle-Width="100" ItemStyle-HorizontalAlign = "Center">
+                        <EditItemTemplate>
+                            <asp:FileUpload ID="URL" runat="server" />
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Image ImageUrl='<%# "Admin/Pictures/" + (Eval("URL").ToString().Length == 0 ? "NoImage.png" : Eval("URL").ToString()) %>' runat="server" Height = "50" Width = "50" />
+                        </ItemTemplate>
+                        <ItemStyle HorizontalAlign="Center" Width="100px"></ItemStyle>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Service Length">
+                        <ItemTemplate>  
+                            <asp:Label runat="server" Text='<%# Eval("ServiceLength") %>'></asp:Label>  
+                        </ItemTemplate>    
+                        <EditItemTemplate>
+                            <asp:TextBox ID="Latitude" runat="server" Text='<%# Eval("ServiceLength") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                    </asp:TemplateField> 
+                    <asp:TemplateField HeaderText="Price">
+                        <ItemTemplate>  
+                            <asp:Label runat="server" Text='<%# Eval("Price") %>'></asp:Label>  
+                        </ItemTemplate>    
+                        <EditItemTemplate>
+                            <asp:TextBox ID="Longtitude" runat="server" Text='<%# Eval("Price") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                    </asp:TemplateField>
+                        <asp:CommandField HeaderText="Select Barber" ShowSelectButton="True" />
+                    </Columns>
 					<FooterStyle BackColor="#B5C7DE" ForeColor="#4A3C8C" />
 					<HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#F7F7F7" />
 					<PagerStyle BackColor="#E7E7FF" ForeColor="#4A3C8C" HorizontalAlign="Right" />
@@ -108,7 +165,6 @@
 					<SortedDescendingHeaderStyle BackColor="#3E3277" />
 				</asp:GridView>
 			</td>
-            <td class="auto-style13"></td>
         </tr>
         <tr>
             <td class="coll-1">&nbsp;</td>

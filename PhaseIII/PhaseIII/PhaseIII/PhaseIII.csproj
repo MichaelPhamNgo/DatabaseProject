@@ -131,6 +131,7 @@
     <Content Include="Admin\ForgotPassword.aspx" />
     <Content Include="Admin\Login.aspx" />
     <Content Include="Admin\SignUp.aspx" />
+    <Content Include="BookBarBer.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="FindBarbers.aspx" />
     <Content Include="Web.config" />
@@ -198,6 +199,13 @@
     </Compile>
     <Compile Include="Admin\UserLocationService.aspx.designer.cs">
       <DependentUpon>UserLocationService.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BookBarBer.aspx.cs">
+      <DependentUpon>BookBarBer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BookBarBer.aspx.designer.cs">
+      <DependentUpon>BookBarBer.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

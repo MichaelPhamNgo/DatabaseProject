@@ -7,11 +7,22 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PhaseIII {
-    
-    
-    public partial class Default {
-        
+namespace PhaseIII
+{
+
+
+    public partial class Default
+    {
+
+        /// <summary>
+        /// lbError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbError;
+
         /// <summary>
         /// txtSearchZip control.
         /// </summary>
@@ -20,7 +31,7 @@ namespace PhaseIII {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtSearchZip;
-        
+
         /// <summary>
         /// dropDownListRange control.
         /// </summary>
@@ -29,7 +40,7 @@ namespace PhaseIII {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList dropDownListRange;
-        
+
         /// <summary>
         /// btnSearchZip control.
         /// </summary>
@@ -38,7 +49,7 @@ namespace PhaseIII {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSearchZip;
-        
+
         /// <summary>
         /// Button2 control.
         /// </summary>
@@ -47,23 +58,14 @@ namespace PhaseIII {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button2;
-        
+
         /// <summary>
-        /// grdViewZip control.
+        /// GridView1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdViewZip;
-        
-        /// <summary>
-        /// ObjectDataSource1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource ObjectDataSource1;
+        protected global::System.Web.UI.WebControls.GridView GridView1;
     }
 }

@@ -27,12 +27,13 @@ namespace PhaseIII
 		{
 
 			string query = (@"
-				SELECT u.FName AS 'First Name',
-				u.LName AS 'Last Name',
+				SELECT u.UserId, 
+				u.FName,
+				u.LName,
 				u.Email,
 				u.Phone,
-				s.ServiceName AS 'Service Name',
-				s.ServiceLength AS 'Service Length',
+				s.URL,
+				s.ServiceLength,
 				sb.Price
 				FROM Services s
 				INNER JOIN ServicesBarBers sb
@@ -63,17 +64,28 @@ namespace PhaseIII
 			string connectionString = WebConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
 
 			using (SqlConnection conn = new SqlConnection(connectionString)) {
-				conn.Open();
+				try
+				{
+					conn.Open();
 
-				SqlCommand command = new SqlCommand(query, conn);
-				SqlDataReader dataReader = command.ExecuteReader();
+					SqlCommand command = new SqlCommand(query, conn);
+					SqlDataReader dataReader = command.ExecuteReader();
 
-				SearchResults.DataSource = dataReader;
-				SearchResults.DataBind();
-
-				command.Dispose();
-				dataReader.Close();
-				conn.Close();
+					SearchResults.DataSource = dataReader;
+					SearchResults.DataBind();
+					command.Dispose();
+					dataReader.Close();
+				
+				}
+				catch (Exception ex)
+				{
+					Response.Write(ex.Message);
+				}
+				finally
+				{
+					
+					conn.Close();
+				}
 			}
 		}
 	}

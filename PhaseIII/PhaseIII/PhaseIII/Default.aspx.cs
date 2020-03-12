@@ -27,9 +27,10 @@ namespace PhaseIII
     {
         string API_KEY = "&key=AIzaSyC1ZOwD2OkPuMC - eD7MpBVrGNrcj8bQzkc";
         static HttpClient client = new HttpClient();
+        string connectionString = WebConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+         
         }
 
         static async Task<string> GeoLatLon(string path)
@@ -48,57 +49,44 @@ namespace PhaseIII
         }
         protected async void btnSearchZip_Click(object sender, EventArgs e)
         {
-
-            // List data respons
+            SqlConnection conn = new SqlConnection(connectionString);
+            // List data respons            
             string zip = txtSearchZip.Text;
+            if (zip.Trim().Length == 0)
+            {
+                lbError.Text = "Please input the zip code";
+                return;
+            }
             string range = dropDownListRange.SelectedValue;
-            string result = await GeoLatLon("?address=" + zip + API_KEY);
-            Console.WriteLine(result);
+            string result = await GeoLatLon("?address=" + zip + API_KEY);            
             var parsed = JObject.Parse(result);
             var loc = parsed.SelectToken("$.results[0].geometry.location").Value<JToken>();
             double lat = loc.SelectToken("lat").Value<float>();
-            double lng = loc.SelectToken("lng").Value <float>();
-            string connectionString = WebConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
-            SqlConnection conn = new SqlConnection(connectionString);
-            string selectCommand = "SELECT  Name, Phone" +
-            " FROM(SELECT FName Name, Phone, CurrentLocation Location, Locations.Latitude Lat, Locations.Longtitude Lon FROM Users, Locations WHERE Users.CurrentLocation = Locations.LocationId AND Users.GroupId = 2)" +
-            "AS CurrentLocations WHERE(acos(sin(" + lat + " * pi() / 180) * sin(Lat * pi() / 180) + cos(" + lat + " * pi() / 180) * cos(Lat * pi() / 180) * cos(pi() / 180 * (Lon - (" + lng + ")))) * 3958.8 <= " + range + ")";
-            /*
-            selectCommand.Parameters.Add(new SqlParameter
-            {
-                ParameterName = "@Lat",
-                Value = lat,
-                SqlDbType = SqlDbType.Float,
-            });
-            selectCommand.Parameters.Add(new SqlParameter
-            {
-                ParameterName = "@Lng",
-                Value = lng,
-                SqlDbType = SqlDbType.Float,
-            });
-            selectCommand.Parameters.Add(new SqlParameter
-            {
-                ParameterName = "@Dist",
-                Value = 100,
-                SqlDbType = SqlDbType.Float,
-            });
-            */
+            double lng = loc.SelectToken("lng").Value <float>();           
             try
             {
                 conn.Open();
+                SqlDataAdapter da = new SqlDataAdapter("SELECT UserId, FName, LName, Phone, Lat, Lon FROM (SELECT UserId, FName, LName, Phone, Users.GroupId, CurrentLocation Location, Locations.Latitude Lat, Locations.Longtitude Lon FROM Users, Locations WHERE Users.CurrentLocation = Locations.LocationId AND Users.GroupId = 2)" +
+                                    "AS CurrentLocations WHERE(acos(sin(" + lat + " * pi() / 180) * sin(Lat * pi() / 180) + cos(" + lat + " * pi() / 180) * cos(Lat * pi() / 180) * cos(pi() / 180 * (Lon - (" + lng + ")))) * 3958.8 <= " + range + ")", connectionString);                
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                if (!object.Equals(ds, null))
+                {
+                    if (ds.Tables[0].Rows.Count > 0)
+                    {
+                        GridView1.DataSource = ds.Tables[0];
+                        GridView1.DataBind();
+                    }
 
-                SqlDataAdapter sda = new SqlDataAdapter(selectCommand, conn);
-                DataTable dt = new DataTable();
-                sda.Fill(dt);
-                Console.Write(dt);
-                grdViewZip.DataSource = dt;
-                grdViewZip.DataBind();
-                conn.Close();
-
+                }
             }
             catch (Exception ex)
             {
                 Response.Write(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
             }
         }
     }
