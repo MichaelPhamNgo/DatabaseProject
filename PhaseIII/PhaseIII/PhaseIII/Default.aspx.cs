@@ -43,6 +43,7 @@ namespace PhaseIII
             }
             var response = await client.GetAsync(path);
 
+
             return response.Content.ReadAsStringAsync().Result;
         }
         protected async void btnSearchZip_Click(object sender, EventArgs e)
@@ -56,7 +57,7 @@ namespace PhaseIII
             var parsed = JObject.Parse(result);
             var loc = parsed.SelectToken("$.results[0].geometry.location").Value<JToken>();
             double lat = loc.SelectToken("lat").Value<float>();
-            double lng = loc.SelectToken("lng").Value<float>();
+            double lng = loc.SelectToken("lng").Value <float>();
             string connectionString = WebConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             SqlConnection conn = new SqlConnection(connectionString);
             string selectCommand = "SELECT  Name, Phone" +
@@ -84,7 +85,6 @@ namespace PhaseIII
             */
             try
             {
-
                 conn.Open();
 
                 SqlDataAdapter sda = new SqlDataAdapter(selectCommand, conn);

@@ -115,6 +115,34 @@ namespace PhaseIII
                         txtPassword.Text = "";
                         txtConfirmpassword.Text = "";
                         txtEmail.Text = "";
+                        /*
+                        comm.Parameters.Add(rollno);
+                        comm.Parameters.Add(name);
+                        comm.Parameters.Add(course);
+                        comm.Parameters.Add(city);
+                        */
+
+                        SqlDataAdapter sda = new SqlDataAdapter("SELECT * FROM Users", connectionString);
+                        int totalRow = 0;
+                        DataTable dt = new DataTable();
+                        sda.Fill(dt);
+                        conn.Close();
+
+                        totalRow = dt.Rows.Count;
+
+                        for (int i = 0; i < totalRow; i++)
+                        {
+                            if (dt.Rows[i]["Email"].ToString().Trim() == email)
+                            {
+                                if (dt.Rows[i]["Password"].ToString().Trim() == password)
+                                {
+                                    Session["Email"] = dt.Rows[i]["Email"].ToString().Trim();
+                                    Session["Fullname"] = dt.Rows[i]["FName"].ToString().Trim() + " " + dt.Rows[i]["LName"].ToString().Trim();
+                                    Session["UserID"] = dt.Rows[i]["UserID"].ToString().Trim();
+                                    Response.Redirect("~/Admin/Service.aspx");
+                                }
+                            }
+                        }
                     }
                     catch (Exception ex)
                     {

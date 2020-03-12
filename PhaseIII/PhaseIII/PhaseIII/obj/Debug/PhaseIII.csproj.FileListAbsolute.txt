@@ -230,3 +230,5 @@ C:\Users\micha\source\repos\DatabaseProject\PhaseIII\PhaseIII\PhaseIII\obj\Debug
 C:\Users\micha\source\repos\DatabaseProject\PhaseIII\PhaseIII\PhaseIII\obj\Debug\PhaseIII.csproj.CopyComplete
 C:\Users\micha\source\repos\DatabaseProject\PhaseIII\PhaseIII\PhaseIII\obj\Debug\PhaseIII.dll
 C:\Users\micha\source\repos\DatabaseProject\PhaseIII\PhaseIII\PhaseIII\obj\Debug\PhaseIII.pdb
+C:\Users\micha\source\repos\DatabaseProject\PhaseIII\PhaseIII\PhaseIII\bin\Newtonsoft.Json.dll
+C:\Users\micha\source\repos\DatabaseProject\PhaseIII\PhaseIII\PhaseIII\bin\Newtonsoft.Json.xml
