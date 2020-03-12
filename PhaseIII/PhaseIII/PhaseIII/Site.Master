@@ -111,14 +111,19 @@
                                             <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Default.aspx">Find Babers Nearby</asp:HyperLink>
                                         </td>
                                     </tr>
-                                    <tr>
+									<tr>
                                         <td class="auto-style7">
-                                            <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/FindBarbers.aspx">Find Barbers with Options</asp:HyperLink>
+                                            <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/FindBarbers.aspx">Find Barbers</asp:HyperLink>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="auto-style7">
-                                            <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/AboutUs.aspx">About Us</asp:HyperLink>
+                                            <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/FindServices.aspx">Find Service</asp:HyperLink>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="auto-style7">
+                                            <asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~/AboutUs.aspx">About Us</asp:HyperLink>
                                         </td>
                                     </tr>
                                 </table>
