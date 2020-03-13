@@ -218,6 +218,22 @@
                         </ItemTemplate>
                         
                     </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Longtitude">
+                        <ItemTemplate>  
+                            <asp:Label runat="server" Text='<%# Eval("Longtitude") %>'></asp:Label>  
+                        </ItemTemplate>    
+                        <EditItemTemplate>
+                            <asp:TextBox ID="Longtitude" runat="server" Text='<%# Eval("Longtitude") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Latitude">
+                        <ItemTemplate>  
+                            <asp:Label runat="server" Text='<%# Eval("Latitude") %>'></asp:Label>  
+                        </ItemTemplate>    
+                        <EditItemTemplate>
+                            <asp:TextBox ID="Longtitude" runat="server" Text='<%# Eval("Latitude") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                    </asp:TemplateField>
                     <asp:CommandField ButtonType="Image" CancelImageUrl="~/Admin/Images/canel.png" EditImageUrl="~/Admin/Images/edit.png" ShowEditButton="True" UpdateImageUrl="~/Admin/Images/Save.png" />
                     <asp:CommandField ButtonType="Image" DeleteImageUrl="~/Admin/Images/remove.png" ShowDeleteButton="True" />
                 </Columns>

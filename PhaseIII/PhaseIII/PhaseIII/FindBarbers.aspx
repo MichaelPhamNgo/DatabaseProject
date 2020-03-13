@@ -28,24 +28,13 @@
 			width: 98px;
 			font-weight: 600;
 		}
-		.auto-style13 {
-			width: 50px;
-			height: 50px;
-		}
-		.auto-style14 {
-			display: inline-block;
-			color: #4B2E83;
-			padding: 10px;
-			font-weight: 600;
-			height: 50px;
-		}
-		
+				
     </style>
     <table class="table-borderless">
         <tr>
             <td class="coll-1"></td>
             <td class="coll-2"></td>
-            <td class="coll-3">Find Barbers Nearby</td>
+            <td class="coll-3">Find Barbers Nearby With Price And Service Amount</td>
             <td class="coll-1"></td>
         </tr>
         <tr class="form-group">
@@ -64,13 +53,19 @@
             </td>
             <td class="col-1"></td>
         </tr>
+		<tr class="form-group">
+            <td class="coll-1">&nbsp;</td>
+            <td class="auto-style12">Maximum Service Amount</td>
+            <td class="coll-3">
+                <asp:TextBox ID="MaximumServiceBox" runat="server" Width="600px" CssClass="form-control"></asp:TextBox>
+            </td>
+            <td class="col-1">&nbsp;</td>
+        </tr>
          <tr class="form-group">
             <td class="coll-1">&nbsp;</td>
-            <td class="auto-style12">Service Type</td>
+            <td class="auto-style12">Minimum Service Amount</td>
             <td class="coll-3">
-                <asp:DropDownList ID="ServiceList" runat="server" DataSourceID="SqlDataSource1" DataTextField="ServiceName" DataValueField="ServiceId" CssClass="form-control">                
-                </asp:DropDownList>
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Services]"></asp:SqlDataSource>
+                <asp:TextBox ID="MinimumServiceBox" runat="server" Width="600px" CssClass="form-control"></asp:TextBox>
             </td>
             <td class="col-1">&nbsp;</td>
         </tr>
@@ -87,14 +82,7 @@
             <td colspan="4">
 				<asp:GridView ID="SearchResults" runat="server" AutoGenerateColumns="False" CellPadding="3" GridLines="Horizontal" Width="100%" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px">
 					<AlternatingRowStyle BackColor="#F7F7F7" />
-                    <Columns>
-                        <asp:TemplateField HeaderText="ID">
-                        <ItemTemplate>
-                            <asp:Label ID="BarBerID" runat="server" Text='<%# Eval("UserId") %>'></asp:Label>
-                        </ItemTemplate>
-                        <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-                        <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-                    </asp:TemplateField>
+                    <Columns>                        
                     <asp:TemplateField HeaderText="First Name">
                         <ItemTemplate>  
                             <asp:Label runat="server" Text='<%# Eval("FName") %>'></asp:Label>  
@@ -110,46 +98,21 @@
                         <EditItemTemplate>
                             <asp:TextBox ID="LName" runat="server" Text='<%# Eval("LName") %>'></asp:TextBox>
                         </EditItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Email">
-                    <ItemTemplate>  
-                        <asp:Label runat="server" Text='<%# Eval("Email") %>'></asp:Label>  
-                    </ItemTemplate>
-                    <EditItemTemplate>
-                        <asp:TextBox ID="Phone" runat="server" Text='<%# Eval("Email") %>'></asp:TextBox>
-                    </EditItemTemplate>
-                    </asp:TemplateField>    
-                    <asp:TemplateField HeaderText="Phone">
+                    </asp:TemplateField>                    
+                    <asp:TemplateField HeaderText="Services Offered">
                         <ItemTemplate>  
-                            <asp:Label runat="server" Text='<%# Eval("Phone") %>'></asp:Label>  
-                        </ItemTemplate>
-                        <EditItemTemplate>
-                            <asp:TextBox ID="Phone" runat="server" Text='<%# Eval("Phone") %>'></asp:TextBox>
-                        </EditItemTemplate>
-                    </asp:TemplateField>   
-                    <asp:TemplateField HeaderText="Style" ItemStyle-Width="100" ItemStyle-HorizontalAlign = "Center">
-                        <EditItemTemplate>
-                            <asp:FileUpload ID="URL" runat="server" />
-                        </EditItemTemplate>
-                        <ItemTemplate>
-                            <asp:Image ImageUrl='<%# "Admin/Pictures/" + (Eval("URL").ToString().Length == 0 ? "NoImage.png" : Eval("URL").ToString()) %>' runat="server" Height = "50" Width = "50" />
-                        </ItemTemplate>
-                        <ItemStyle HorizontalAlign="Center" Width="100px"></ItemStyle>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Service Length">
-                        <ItemTemplate>  
-                            <asp:Label runat="server" Text='<%# Eval("ServiceLength") %>'></asp:Label>  
+                            <asp:Label runat="server" Text='<%# Eval("ServicesOffered") %>'></asp:Label>  
                         </ItemTemplate>    
                         <EditItemTemplate>
-                            <asp:TextBox ID="Latitude" runat="server" Text='<%# Eval("ServiceLength") %>'></asp:TextBox>
+                            <asp:TextBox ID="ServicesOffered" runat="server" Text='<%# Eval("ServicesOffered") %>'></asp:TextBox>
                         </EditItemTemplate>
                     </asp:TemplateField> 
-                    <asp:TemplateField HeaderText="Price">
+                    <asp:TemplateField HeaderText="Average Price">
                         <ItemTemplate>  
-                            <asp:Label runat="server" Text='<%# Eval("Price") %>'></asp:Label>  
+                            <asp:Label runat="server" Text='<%# Eval("AveragePrice") %>'></asp:Label>  
                         </ItemTemplate>    
                         <EditItemTemplate>
-                            <asp:TextBox ID="Longtitude" runat="server" Text='<%# Eval("Price") %>'></asp:TextBox>
+                            <asp:TextBox ID="AveragePrice" runat="server" Text='<%# Eval("AveragePrice") %>'></asp:TextBox>
                         </EditItemTemplate>
                     </asp:TemplateField>
                         <asp:CommandField HeaderText="Select Barber" ShowSelectButton="True" />

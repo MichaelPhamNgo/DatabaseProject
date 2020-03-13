@@ -20,32 +20,51 @@ namespace PhaseIII
 		{
 			MaximumPriceBox.Text = String.Empty;
 			MinimumPriceBox.Text = String.Empty;
-			ServiceList.SelectedIndex = 0;
+			MaximumServiceBox.Text = String.Empty;
+			MinimumServiceBox.Text = String.Empty;
 		}
 
 		protected void SearchButton_Click(object sender, EventArgs e)
 		{
 
-			string query = (@"
-				SELECT u.UserId, 
-				u.FName,
-				u.LName,
-				u.Email,
-				u.Phone,
-				s.URL,
-				s.ServiceLength,
-				sb.Price
-				FROM Services s
-				INNER JOIN ServicesBarBers sb
-					ON sb.ServiceId = s.ServiceId
-				INNER JOIN Users u
-					ON u.UserId = sb.BarberID
-				WHERE {0} <= sb.Price
-					AND sb.price <= {1}
-					AND s.ServiceId = {2}");
+			string query = (@"SELECT *
+				FROM (
+					SELECT u.FName AS 'FName',
+						u.LName AS 'LName',
+						COUNT(s.ServiceId) AS [ServicesOffered],
+						ROUND(AVG(s.Price), 2) AS [AveragePrice]
+					FROM Users u
+						INNER JOIN (
+							SELECT sb.BarberID,
+								sb.Price,
+								sb.ServiceId
+							FROM ServicesBarBers sb
+							) as s
+							ON u.UserId = s.BarberID
+					GROUP BY u.UserId, 
+						u.FName,
+						u.LName
+					) AS result
+				WHERE {0} <= [ServicesOffered]
+					AND [ServicesOffered] <= {1}
+					AND {2} <= [AveragePrice]
+					AND [AveragePrice] <= {3}
+				ORDER BY [ServicesOffered] DESC,
+					[AveragePrice]
+			");
 
-			if (!Int32.TryParse(ServiceList.SelectedValue, out int ServiceId))
-				return;
+
+			if (!Int32.TryParse(MinimumServiceBox.Text, out int MinServices))
+			{
+				MinimumServiceBox.Text = String.Empty;
+				MinServices = 1;
+			}
+
+			if (!Int32.TryParse(MaximumServiceBox.Text, out int MaxServices))
+			{
+				MaximumServiceBox.Text = String.Empty;
+				MaxServices = Int32.MaxValue;
+			}
 
 			if (!Int32.TryParse(MinimumPriceBox.Text, out int MinPrice))
 			{
@@ -59,7 +78,7 @@ namespace PhaseIII
 				MaxPrice = Int32.MaxValue;
 			}
 
-			query = String.Format(query, MinPrice, MaxPrice, ServiceId);
+			query = String.Format(query, MinServices, MaxServices, MinPrice, MaxPrice);
 
 			string connectionString = WebConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
 

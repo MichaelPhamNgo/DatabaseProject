@@ -31,7 +31,8 @@ namespace PhaseIII.Admin
             {
                 conn.Open();
                 SqlDataAdapter da = new SqlDataAdapter("SELECT U.UserId AS 'UserId', U.FName AS 'FName', U.LName AS 'LName', U.Email AS 'Email', U.URL" +
-                    " AS 'URL', U.Phone AS 'Phone', G.Name AS 'GroupName' FROM Users AS U JOIN Groups AS G ON U.GroupId = G.GroupId", connectionString);
+                    " AS 'URL', U.Phone AS 'Phone', G.Name AS 'GroupName', Locations.Latitude, Locations.Longtitude  FROM Users AS U JOIN Groups AS G ON U.GroupId = G.GroupId JOIN Locations ON " +
+                    "U.CurrentLocation = Locations.LocationId", connectionString);
                 DataSet ds = new DataSet();
                 da.Fill(ds);
                 if (!object.Equals(ds, null))
@@ -46,7 +47,7 @@ namespace PhaseIII.Admin
             }
             catch (Exception ex)
             {
-
+                Response.Write(ex.Message);
             }
             finally
             {
@@ -60,7 +61,7 @@ namespace PhaseIII.Admin
             try
             {
                 conn.Open();
-                SqlDataAdapter da = new SqlDataAdapter("SELECT U.UserId, U.FName, U.LName, U.Email, U.URL, U.Phone, G.Name FROM Users AS U JOIN Groups AS G ON U.GroupId = G.GroupId WHERE U.Email = '" + txtSearch.Text.Trim() + "'", connectionString);
+                SqlDataAdapter da = new SqlDataAdapter("SELECT U.UserId, U.FName, U.LName, U.Email, U.URL, U.Phone, G.Name, L.Latitude, L.Longitude FROM Users AS U JOIN Groups AS G ON U.GroupId = G.GroupId JOIN Locations AS L ON U.CurrentLocation = L.LocationId  WHERE U.Email = '" + txtSearch.Text.Trim() + "'", connectionString);
                 DataSet ds = new DataSet();
                 da.Fill(ds);
                 if (!object.Equals(ds, null))
