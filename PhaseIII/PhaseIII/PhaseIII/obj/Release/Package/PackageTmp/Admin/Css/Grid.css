@@ -1,0 +1,177 @@
+﻿.Grid 
+{ 
+  border: 1px solid #7C7C94; 
+  background-color: #FFFFFF; 
+  cursor: pointer; 
+}
+
+.HeadingRow 
+{ 
+  background-color: #E2E2E2;
+  text-align: center; 
+}
+
+.HeadingCell 
+{ 
+  background-color: #E2E2E2; 
+  border: 1px solid #FFFFFF; 
+  border-right-color: #B5B5B5; 
+  border-bottom-color: #B5B5B5; 
+  padding: 3px;
+  text-align: center;
+}
+
+.HeadingCellText
+{
+  font-family:Arial; 
+  font-size: 11px; 
+  font-weight: bold; 
+  text-align: center;
+}
+
+.DataRow 
+{ 
+  background-color: #FFFFFF; 
+}
+
+.DataCell
+{
+    cursor: default;
+    border-right: 1px solid #EAE9E1;
+    border-bottom: 1px solid #EAE9E1;
+    font-family:Arial;
+    font-size: 11px;
+    padding-left: 3px;
+      
+} 
+
+.DataRow td.FirstDataCell 
+{ 
+  padding-left: 1px; 
+} 
+
+.SelectedRow 
+{ 
+  background-color: #FFEEC2; 
+}
+
+.SelectedRow td.DataCell 
+{ 
+  
+ font-family:Arial; 
+  font-size: 11px; 
+  border-bottom: 1px solid #4B4B6F; 
+  border-top: 1px solid #4B4B6F; 
+  border-right: 0px; 
+  cursor: default; 
+  padding-left: 3px;  
+}
+
+.SelectorCell 
+{ 
+  background-color: #E2E2E2; 
+  border: 1px solid #FFFFFF; 
+  border-right-color: #B5B5B5; 
+  border-bottom-color: #B5B5B5; 
+}
+
+.GridFooter
+{
+  cursor: default;
+  padding:5px;
+}
+
+.GridFooter a 
+{
+  color: Black;
+  font-weight: bold;
+}
+
+
+.PagerText
+{ 
+  font-family:Arial; 
+  font-size: 11px; 
+} 
+.RedRow 
+{ 
+ background-color: #FFFFFF; 
+ cursor: default;
+}
+.RedRow td.DataCell 
+{ 
+  color: red;
+  border-right: 1px solid #E6E6E6; 
+  border-bottom: 1px solid #E6E6E6; 
+  font-family:Arial; 
+  font-size: 11px; 
+  cursor: default;
+} 
+
+.AlternatingRow 
+{ 
+  cursor: default; 
+}
+
+.AlternatingRow td.DataCell
+{
+	background-color: rgb(100,143,85);
+	padding: 2px;
+	border-right: 1px solid #E6E6E6;
+	border-bottom: 1px solid #E6E6E6;
+	font-family: Arial;
+	font-size: 11px;
+	cursor: default;
+	color: #FFFFFF;
+} 
+
+.AlternatingRow td.FirstDataCell 
+{ 
+  background-color: rgb(100,143,85); 
+  padding-left: 3px; 
+  cursor: default; 
+} 
+.autonumber
+{
+  background:#336699;
+  border-right:1px solid rgb(230,239,234);
+  height:20px;
+   font-size: 11px;
+  font-family: Arial;
+  cursor:default;
+  color: White;  
+}
+
+.Mautrang
+{
+  background:white;
+  border-right:1px solid rgb(230,239,234);
+  height:20px;
+   font-size: 11px;
+  font-family: Arial;
+  cursor:default;
+  color: Black;  
+}
+.AlternatingRow2 
+{ 
+  cursor: default; 
+}
+
+.AlternatingRow2 td.DataCell
+{
+	background-color: rgb(100,143,85);
+	padding: 2px;
+	border-right: 1px solid #E6E6E6;
+	border-bottom: 1px solid #E6E6E6;
+	font-family: Arial;
+	font-size: 11px;
+	cursor: default;
+	color: #000000;
+} 
+
+.AlternatingRow2 td.FirstDataCell 
+{ 
+  background-color: rgb(100,143,85); 
+  padding-left: 3px; 
+  cursor: default; 
+} 

@@ -1,0 +1,74 @@
+﻿body {
+}
+
+.footer {
+    background: #574A78;
+    border-right: 1px solid rgb(230,239,234);
+    height: 40px;
+    font-size: 12px;
+    font-family: Arial;
+    cursor: default;
+    color: White;
+}
+
+.labellon {
+    color: #336699;
+    font-size: 18px;
+    font-family: Arial;
+    font-weight: bold;
+}
+
+.labelloi {
+    color: RED;
+    font-size: 12px;
+    font-family: Arial;
+}
+
+.labelthuong {
+    color: BLACK;
+    font-size: 12px;
+    font-family: Arial;
+}
+
+.TextBox {
+    color: BLACK;
+    font-size: 12px;
+    font-family: Arial;
+    margin-bottom: 0px;
+}
+
+.Combobox {
+    color: BLACK;
+    font-size: 12px;
+    font-family: Arial;
+    margin-bottom: 0px;
+}
+
+.buttonlon {
+    color: RED;
+    font-size: 18px;
+    font-family: Arial;
+    font-weight: bold;
+}
+
+.buttonloi {
+    color: RED;
+    font-size: 12px;
+    font-family: Arial;
+}
+
+.butLable {
+    color: BLACK;
+    font-size: 12px;
+    font-family: Arial;
+    height: 30px;
+    width: 80px;
+}
+
+.butLableSmall {
+    color: BLACK;
+    font-size: 12px;
+    font-family: Arial;
+    height: 20px;
+    width: 50px;
+}

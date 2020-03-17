@@ -106,7 +106,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="404NotFound.aspx" />
     <Content Include="AboutUs.aspx" />
     <Content Include="Admin\Css\bootstrap.min.css" />
     <Content Include="Admin\Css\Calendar.css" />
@@ -130,6 +129,7 @@
     <Content Include="Admin\Pictures\7.jpg" />
     <Content Include="Admin\Pictures\8.jpg" />
     <Content Include="Admin\Pictures\9.jpg" />
+    <Content Include="Admin\Pictures\icon.png" />
     <Content Include="Admin\Pictures\NoImage.png" />
     <Content Include="Admin\Service.aspx" />
     <Content Include="Admin\ServiceBarber.aspx" />
@@ -149,13 +149,6 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="404NotFound.aspx.cs">
-      <DependentUpon>404NotFound.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="404NotFound.aspx.designer.cs">
-      <DependentUpon>404NotFound.aspx</DependentUpon>
-    </Compile>
     <Compile Include="AboutUs.aspx.cs">
       <DependentUpon>AboutUs.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
